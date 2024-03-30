@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weather App</title>
         <link rel="stylesheet" href="wt.css">
+        <script src="js/moment.js"></script>
         <script src="js/all.min.js"></script>
     </head>
     <body>
@@ -18,7 +19,7 @@
                     <p class="city-name">HCM</p>
                     <p class="weather-state">may thua</p>
                     <img src="https://openweathermap.org/img/wn/10d@2x.png"
-                    alt="weather icon">
+                    alt="weather icon" class="weather-icon">
                     <p class="temperature">20</p>
                 </div>
             </div>
@@ -26,24 +27,25 @@
                 <div class="row">
                     <div class="item">
                         <div class="label">MT Mọc</div>
-                        <div class="value">6:00</div>
+                        <div class="value sunrise">6:00</div>
                     </div>
                     <div class="item">
                         <div class="label">MT Lặn</div>
-                        <div class="value">17:00</div>
+                        <div class="value sunset">17:00</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="item">
                         <div class="label">Độ ẩm</div>
-                        <div class="value">70%</div>
+                        <div class="value"><span class="humidity">70</span>%</div>
                     </div>
                     <div class="item">
                         <div class="label">Gió</div>
-                        <div class="value">5.4 km/h</div>
+                        <div class="value"><span class="wind-speed">5.4</span> km/h</div>
                     </div>
                 </div>
             </div>
         </div>
+        <script src="js\wt.js"></script>
     </body>
 </html>
