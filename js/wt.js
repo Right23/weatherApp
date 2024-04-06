@@ -31,3 +31,52 @@ searchInput.addEventListener('change', (e)=>{
         })
 });
 
+// Tro ly ao
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.lang = 'vi-VI';
+
+// du lieu tra ve tu webapi ngay khi ket thuc noi
+recognition.continuous = false;
+
+const microphone = document.querySelector('.microphone');
+
+const handleVoice = (text) =>{
+    console.log('text', text);
+    // xu ly loi goi tim kiem
+    //thoi tiet tai Ha Noi = ["thoi tiet", "Ha Noi"]
+    const handledText = text.toLowerCase();
+    if(handledText.includes('thời tiết tại')){
+        const location = handledText.split('tại')[1].trim();
+
+        console.log('location', location);
+        searchInput.value = location;
+        const changeEvent = new Event('change');
+        searchInput.dispatchEvent(changeEvent);
+        return;
+    }
+}
+microphone.addEventListener('click', (e)=>{
+    e.preventDefault();
+
+    recognition.start();
+    // hoi cho phep dung  mic khong?
+});
+
+// noi xong
+recognition.onspeechend = () =>{
+    recognition.stop();
+}
+
+// co loi xay ra => in ra loi
+recognition.onerror = (err) =>{
+    console.error(err);
+}
+
+// ket qua tra ve tu web api
+recognition.onresult = (e) =>{
+    console.log('onresult', e);
+
+    const text = e.results[0][0].transcript;
+    handleVoice(text);
+}
