@@ -43,6 +43,9 @@
     color: rgb(206,206,206);
 }
 
+.microphone{
+    cursor: pointer;
+}
 .info-wrapper {
     display: flex;
     flex-direction: column;
