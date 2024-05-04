@@ -107,7 +107,14 @@ microphone.addEventListener('click', (e)=>{
     recognition.start();
     // hoi cho phep dung  mic khong?
     microphone.classList.add('recording');
+
 });
+// microphone.onclick = function(e){
+//     e.preventDefault();
+//     recognition.start();
+//     microphone.classList.add('recording');
+
+// }
 
 // noi xong
 recognition.onspeechend = () =>{
@@ -130,3 +137,10 @@ recognition.onresult = (e) =>{
     const text = e.results[0][0].transcript;
     handleVoice(text);
 }
+
+// navigator.geolocation.getCurrentPosition(function(position){
+//     console.log(position.coords.latitude, position.coords.longitude);
+// })
+// navigator.geolocation.getCurrentPosition(function(position){
+//     console.log(position.main.name, position.main.temp);
+// })
